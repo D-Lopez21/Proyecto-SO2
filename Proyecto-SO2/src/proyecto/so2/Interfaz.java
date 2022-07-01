@@ -18,11 +18,17 @@ import javax.swing.JOptionPane;
  * @author DIEGO_LOPEZ
  */
 public class Interfaz extends javax.swing.JFrame {
+    
     JFileChooser seleccionar = new JFileChooser();
     File archivo;
     FileInputStream entrada;
     FileOutputStream salida;
-    
+    private boolean start;
+    public static volatile int telefonos;
+    public static volatile Cola level1;
+    public static volatile Cola level2;
+    public static volatile Cola level3;
+    public static volatile Cola fixStation;
            
 
     /**
@@ -90,7 +96,7 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         Admin3 = new javax.swing.JTextPane();
         jScrollPane9 = new javax.swing.JScrollPane();
-        Admin4 = new javax.swing.JTextPane();
+        AdminFix = new javax.swing.JTextPane();
         Guardar = new javax.swing.JButton();
         Salida1 = new javax.swing.JButton();
 
@@ -186,8 +192,8 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 270, 250, 110));
 
-        Admin4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
-        jScrollPane9.setViewportView(Admin4);
+        AdminFix.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
+        jScrollPane9.setViewportView(AdminFix);
 
         jPanel2.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 250, 110));
 
@@ -282,7 +288,7 @@ public class Interfaz extends javax.swing.JFrame {
     public static javax.swing.JTextPane Admin1;
     public static javax.swing.JTextPane Admin2;
     public static javax.swing.JTextPane Admin3;
-    public static javax.swing.JTextPane Admin4;
+    public static javax.swing.JTextPane AdminFix;
     public static javax.swing.JTextArea ColasBot;
     private javax.swing.JButton Guardar;
     private javax.swing.JButton Salida1;
@@ -303,6 +309,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextArea priorityUp;
+    public static javax.swing.JTextArea priorityUp;
     // End of variables declaration//GEN-END:variables
 }
