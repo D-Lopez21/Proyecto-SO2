@@ -139,12 +139,12 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel1.setText("Nuevas prioridades");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, 35));
+        jLabel1.setText("Ascenso de Arena");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, 35));
 
         jLabel3.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel3.setText("Colas de prioridad");
+        jLabel3.setText("Arenas de combate");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, -1, 35));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -153,28 +153,28 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel4.setText("Inteligencia Artificial");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 35));
+        jLabel4.setText("IA");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, 35));
 
         jLabel5.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel5.setText("Prioridad 3");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 270, -1, 35));
+        jLabel5.setText("Arena 3");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 270, -1, 35));
 
         jLabel6.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel6.setText("Requieren refuerzo");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, 35));
+        jLabel6.setText("Refuerzo");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, -1, 35));
 
         jLabel7.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel7.setText("Prioridad 2");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, -1, 35));
+        jLabel7.setText("Arena 2");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, -1, 35));
 
         jLabel8.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel8.setText("Prioridad 1");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, 35));
+        jLabel8.setText("Arena 1");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, 35));
 
         jLabel9.setForeground(new java.awt.Color(0, 204, 204));
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
