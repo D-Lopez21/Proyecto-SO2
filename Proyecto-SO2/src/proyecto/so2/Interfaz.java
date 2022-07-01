@@ -283,7 +283,7 @@ public class Interfaz extends javax.swing.JFrame {
     public static javax.swing.JTextPane Admin2;
     public static javax.swing.JTextPane Admin3;
     public static javax.swing.JTextPane Admin4;
-    private javax.swing.JTextArea ColasBot;
+    public static javax.swing.JTextArea ColasBot;
     private javax.swing.JButton Guardar;
     private javax.swing.JButton Salida1;
     private javax.swing.JButton jButton2;
