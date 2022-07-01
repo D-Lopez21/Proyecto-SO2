@@ -13,13 +13,25 @@ import java.util.logging.Logger;
  * @author Nicolás Briceño
  */
 public class AI {
+    
+    private int processTime;
+
+    public AI() {
+        this.processTime = 13000;
+    }
+
+    public void setProcessTime(int processTime) {
+        this.processTime = processTime;
+    }
+    
     public TelfRevisado Check(Nodo node) {
         TelfRevisado checked = null;
         if (node != null) {
             Interfaz.ColasBot.setText("ID Teléfono en revisión: " + Integer.toString(node.getID()) + "\n");
             node.setCounter(0);
             try {
-                Thread.sleep(13000);
+                //System.out.println("Tiempo de procesamiento de la IA: " + processTime);
+                Thread.sleep(processTime);
             } catch (InterruptedException ex) {
                 Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);
             }

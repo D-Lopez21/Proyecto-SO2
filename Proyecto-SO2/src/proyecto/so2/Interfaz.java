@@ -95,7 +95,13 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        AdjustRunTime2 = new javax.swing.JButton();
+        AdjustRunTime3 = new javax.swing.JButton();
+        Salida1 = new javax.swing.JButton();
+        Guardar = new javax.swing.JButton();
+        SimulationTime3 = new javax.swing.JTextField();
+        SimulationTime2 = new javax.swing.JTextField();
+        SimulationTime = new javax.swing.JTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
         Admin1 = new javax.swing.JTextPane();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -104,10 +110,8 @@ public class Interfaz extends javax.swing.JFrame {
         Admin3 = new javax.swing.JTextPane();
         jScrollPane9 = new javax.swing.JScrollPane();
         AdminFix = new javax.swing.JTextPane();
-        Guardar = new javax.swing.JButton();
+        startBtn = new javax.swing.JButton();
         AdjustRunTime = new javax.swing.JButton();
-        Salida1 = new javax.swing.JButton();
-        SimulationTime = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -123,7 +127,7 @@ public class Interfaz extends javax.swing.JFrame {
         ColasBot.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(ColasBot);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 290, 120));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 320, 120));
 
         priorityUp.setColumns(20);
         priorityUp.setRows(5);
@@ -131,17 +135,17 @@ public class Interfaz extends javax.swing.JFrame {
         priorityUp.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane2.setViewportView(priorityUp);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, 300, 120));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 300, 120));
 
         jLabel1.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel1.setText("Actualizacion de prioridades");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, -1, 35));
+        jLabel1.setText("Nuevas prioridades");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, 35));
 
         jLabel3.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel3.setText("Cola de prioridad");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, 35));
+        jLabel3.setText("Colas de prioridad");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, -1, 35));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 204, 204));
@@ -150,83 +154,52 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 204, 204));
         jLabel4.setText("Inteligencia Artificial");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, 35));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 35));
 
         jLabel5.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 204, 204));
         jLabel5.setText("Prioridad 3");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 230, -1, 35));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 270, -1, 35));
 
         jLabel6.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 204, 204));
         jLabel6.setText("Requieren refuerzo");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, 35));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, 35));
 
         jLabel7.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 204, 204));
         jLabel7.setText("Prioridad 2");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, 35));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, -1, 35));
 
         jLabel8.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 204, 204));
         jLabel8.setText("Prioridad 1");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, 35));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, 35));
 
         jLabel9.setForeground(new java.awt.Color(0, 204, 204));
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 204, 204));
-        jButton2.setText("Empezar simulacion");
-        jButton2.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 204, 204)));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        AdjustRunTime2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        AdjustRunTime2.setForeground(new java.awt.Color(0, 204, 204));
+        AdjustRunTime2.setText("Tiempo Decision");
+        AdjustRunTime2.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 204, 204)));
+        AdjustRunTime2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                AdjustRunTime2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 530, 240, 40));
+        jPanel2.add(AdjustRunTime2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, 200, 40));
 
-        Admin1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
-        jScrollPane5.setViewportView(Admin1);
-
-        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 250, 110));
-
-        Admin2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
-        jScrollPane7.setViewportView(Admin2);
-
-        jPanel2.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 240, 110));
-
-        Admin3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
-        jScrollPane8.setViewportView(Admin3);
-
-        jPanel2.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 270, 250, 110));
-
-        AdminFix.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
-        jScrollPane9.setViewportView(AdminFix);
-
-        jPanel2.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 250, 110));
-
-        Guardar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Guardar.setForeground(new java.awt.Color(0, 204, 204));
-        Guardar.setText("Guardar simulacion");
-        Guardar.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 204, 204)));
-        Guardar.addActionListener(new java.awt.event.ActionListener() {
+        AdjustRunTime3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        AdjustRunTime3.setForeground(new java.awt.Color(0, 204, 204));
+        AdjustRunTime3.setText("Iteraciones");
+        AdjustRunTime3.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 204, 204)));
+        AdjustRunTime3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarActionPerformed(evt);
+                AdjustRunTime3ActionPerformed(evt);
             }
         });
-        jPanel2.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 530, 230, 40));
-
-        AdjustRunTime.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        AdjustRunTime.setForeground(new java.awt.Color(0, 204, 204));
-        AdjustRunTime.setText("Ajustar");
-        AdjustRunTime.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 204, 204)));
-        AdjustRunTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdjustRunTimeActionPerformed(evt);
-            }
-        });
-        jPanel2.add(AdjustRunTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 110, 40));
+        jPanel2.add(AdjustRunTime3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 530, 150, 40));
 
         Salida1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Salida1.setForeground(new java.awt.Color(0, 204, 204));
@@ -237,31 +210,87 @@ public class Interfaz extends javax.swing.JFrame {
                 Salida1ActionPerformed(evt);
             }
         });
-        jPanel2.add(Salida1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 480, 110, 40));
+        jPanel2.add(Salida1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 480, 140, 40));
 
-        SimulationTime.setText("Velocidad");
-        SimulationTime.addActionListener(new java.awt.event.ActionListener() {
+        Guardar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Guardar.setForeground(new java.awt.Color(0, 204, 204));
+        Guardar.setText("Guardar simulacion");
+        Guardar.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 204, 204)));
+        Guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SimulationTimeActionPerformed(evt);
+                GuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(SimulationTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 482, 110, 40));
+        jPanel2.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 530, 290, 40));
+
+        SimulationTime3.setText("2");
+        jPanel2.add(SimulationTime3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 480, 150, 40));
+
+        SimulationTime2.setText("13000");
+        jPanel2.add(SimulationTime2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 200, 40));
+
+        SimulationTime.setText("1000");
+        jPanel2.add(SimulationTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 220, 40));
+
+        Admin1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
+        jScrollPane5.setViewportView(Admin1);
+
+        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 310, 110));
+
+        Admin2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
+        jScrollPane7.setViewportView(Admin2);
+
+        jPanel2.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 300, 110));
+
+        Admin3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
+        jScrollPane8.setViewportView(Admin3);
+
+        jPanel2.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 320, 300, 110));
+
+        AdminFix.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
+        jScrollPane9.setViewportView(AdminFix);
+
+        jPanel2.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, 300, 120));
+
+        startBtn.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        startBtn.setForeground(new java.awt.Color(0, 204, 204));
+        startBtn.setText("Comenzar");
+        startBtn.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 204, 204)));
+        startBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(startBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 480, 140, 40));
+
+        AdjustRunTime.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        AdjustRunTime.setForeground(new java.awt.Color(0, 204, 204));
+        AdjustRunTime.setText("Tiempo Simulacion");
+        AdjustRunTime.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 204, 204)));
+        AdjustRunTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdjustRunTimeActionPerformed(evt);
+            }
+        });
+        jPanel2.add(AdjustRunTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, 220, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
         if (!start) {
             start = true;
+            startBtn.setText("Continuar");
             simulation.run();
         }else{
             JOptionPane.showMessageDialog(null, "El proceso ya ha sido comenzado");
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        }
+    }//GEN-LAST:event_startBtnActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
+        this.start = false;
         if(seleccionar.showDialog(null, "Guardar")==JFileChooser.APPROVE_OPTION){
             archivo=seleccionar.getSelectedFile();
             if (archivo.getName().endsWith("txt")){
@@ -279,21 +308,39 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void Salida1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Salida1ActionPerformed
-         System.exit(0);
+        this.start = false;
+        System.exit(0);
     }//GEN-LAST:event_Salida1ActionPerformed
 
-    private void SimulationTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimulationTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SimulationTimeActionPerformed
+    private void AdjustRunTime3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdjustRunTime3ActionPerformed
+        try {
+            this.start = false;
+            int iterations = Integer.parseInt(this.SimulationTime3.getText());
+            this.simulation.setIteration(iterations);
+        } catch (Exception e) {
+            System.out.println("No fue ajustada la iteracion debido a error en la introducción de datos");
+        }
+        
+    }//GEN-LAST:event_AdjustRunTime3ActionPerformed
+
+    private void AdjustRunTime2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdjustRunTime2ActionPerformed
+        try {
+            this.start = false;
+            int AIProcessTime = Integer.parseInt(this.SimulationTime2.getText());
+            this.simulation.setAITime(AIProcessTime);
+        } catch (Exception e) {
+            System.out.println("No fue ajustado el tiempo debido a error en la introducción de datos");
+        }
+    }//GEN-LAST:event_AdjustRunTime2ActionPerformed
 
     private void AdjustRunTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdjustRunTimeActionPerformed
-    try {
-        int numSpeed = Integer.parseInt(this.SimulationTime.getText());
-        this.simulation.setRunTime(numSpeed);
-    } catch (Exception e) {
-        System.out.println("No fue ajustado el tiempo debido a error en la introducción de datos");
-    }
-        
+        try {
+            this.start = false;
+            int numSpeed = Integer.parseInt(this.SimulationTime.getText());
+            this.simulation.setRunTime(numSpeed);
+        } catch (Exception e) {
+            System.out.println("No fue ajustado el tiempo debido a error en la introducción de datos");
+        }
     }//GEN-LAST:event_AdjustRunTimeActionPerformed
 
     /**
@@ -333,6 +380,8 @@ public class Interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AdjustRunTime;
+    private javax.swing.JButton AdjustRunTime2;
+    private javax.swing.JButton AdjustRunTime3;
     public static javax.swing.JTextPane Admin1;
     public static javax.swing.JTextPane Admin2;
     public static javax.swing.JTextPane Admin3;
@@ -341,7 +390,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton Guardar;
     private javax.swing.JButton Salida1;
     private javax.swing.JTextField SimulationTime;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JTextField SimulationTime2;
+    private javax.swing.JTextField SimulationTime3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -359,5 +409,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     public static javax.swing.JTextArea priorityUp;
+    private javax.swing.JButton startBtn;
     // End of variables declaration//GEN-END:variables
 }
