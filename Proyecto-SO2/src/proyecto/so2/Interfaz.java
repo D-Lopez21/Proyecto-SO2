@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Formatter;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -18,13 +19,9 @@ import javax.swing.JOptionPane;
  * @author DIEGO_LOPEZ
  */
 public class Interfaz extends javax.swing.JFrame {
-    JFileChooser seleccionar = new JFileChooser();
-    File archivo;
-    FileInputStream entrada;
-    FileOutputStream salida;
+    String barra = File.separator;
+    String ubicacion = System.getProperty("user.dir")+barra+"Simulaciones"+barra;
     
-           
-
     /**
      * Creates new form Interfaz
      */
@@ -33,31 +30,34 @@ public class Interfaz extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
-    public String AbrirArchivo(File archivo) throws FileNotFoundException, IOException{
-        String documento="";
-        try{
-            entrada=new FileInputStream(archivo);
-            int ascci;
-            while((ascci=entrada.read())!=-1){
-                char caracter=(char)ascci;
-                documento+=caracter;
+    private void GenerarSimu(){
+        String archivo = jtxtsim.getText()+".txt";
+        File crea_ubicacion = new File(ubicacion);
+        File crea_archivo = new File(ubicacion+archivo);
+        
+        if(jtxtsim.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "No hay simulaciones guardadas recientemente");
+        }else{
+                try{
+                    if(crea_archivo.exists()){
+                    JOptionPane.showMessageDialog(rootPane, "Ya hay una simulacion bajo este nombre");
+                    }else{
+                        crea_ubicacion.mkdirs();
+                        Formatter crea = new Formatter(ubicacion+archivo);
+                        crea.format("%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n%s","Nombre de la simulacion= "+jtxtsim.getText(),
+                                "Analisis de la Inteligencia Artifical= "+Admin3.getText(),"Actualizacon de prioridades= "+priorityUp.getText(),
+                                "Prioridad 1= "+Admin1.getText(),"Prioridad 2= "+Admin2.getText(),"Prioridad 3= "+Admin3.getText(),
+                                "Requieren Esfuerzo= "+Admin4.getText());
+                        crea.close();
+                        JOptionPane.showMessageDialog(rootPane, "Archivo creado");
+                    }
+                
+            }catch (Exception e){
+                
             }
-        } catch (Exception e){
         }
-        return documento;
     }
-    
-    public String GuardarArchivo(File archivo, String documento){
-        String mensaje = null;
-        try{
-            salida = new FileOutputStream(archivo);
-            byte [] bytxt = documento.getBytes();
-            salida.write(bytxt);
-            mensaje = "archivo guardado";
-        } catch (Exception e){
-        }
-        return mensaje;
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,7 +70,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        ColasBot = new javax.swing.JTextArea();
+        Admin3 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         priorityUp = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
@@ -83,16 +83,17 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        Admin1 = new javax.swing.JTextPane();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        Admin2 = new javax.swing.JTextPane();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        Admin3 = new javax.swing.JTextPane();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        Admin4 = new javax.swing.JTextPane();
         Guardar = new javax.swing.JButton();
         Salida1 = new javax.swing.JButton();
+        jtxtsim = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        ColasBot1 = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        Admin1 = new javax.swing.JTextArea();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        Admin4 = new javax.swing.JTextArea();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        Admin2 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -102,17 +103,19 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ColasBot.setColumns(20);
-        ColasBot.setRows(5);
-        ColasBot.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
-        ColasBot.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane1.setViewportView(ColasBot);
+        Admin3.setEditable(false);
+        Admin3.setColumns(20);
+        Admin3.setRows(5);
+        Admin3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204), 5));
+        Admin3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane1.setViewportView(Admin3);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 290, 120));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 270, 280, 110));
 
+        priorityUp.setEditable(false);
         priorityUp.setColumns(20);
         priorityUp.setRows(5);
-        priorityUp.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
+        priorityUp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204), 5));
         priorityUp.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane2.setViewportView(priorityUp);
 
@@ -171,26 +174,6 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 490, 240, 40));
 
-        Admin1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
-        jScrollPane5.setViewportView(Admin1);
-
-        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 250, 110));
-
-        Admin2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
-        jScrollPane7.setViewportView(Admin2);
-
-        jPanel2.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 240, 110));
-
-        Admin3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
-        jScrollPane8.setViewportView(Admin3);
-
-        jPanel2.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 270, 250, 110));
-
-        Admin4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
-        jScrollPane9.setViewportView(Admin4);
-
-        jPanel2.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 250, 110));
-
         Guardar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Guardar.setForeground(new java.awt.Color(0, 204, 204));
         Guardar.setText("Guardar simulacion");
@@ -200,7 +183,7 @@ public class Interfaz extends javax.swing.JFrame {
                 GuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 530, 230, 40));
+        jPanel2.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 480, 230, 40));
 
         Salida1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Salida1.setForeground(new java.awt.Color(0, 204, 204));
@@ -211,7 +194,51 @@ public class Interfaz extends javax.swing.JFrame {
                 Salida1ActionPerformed(evt);
             }
         });
-        jPanel2.add(Salida1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 480, 110, 40));
+        jPanel2.add(Salida1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 530, 110, 40));
+
+        jtxtsim.setText("Inserte nombre de la simulacion");
+        jtxtsim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtsimActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jtxtsim, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 440, 210, 30));
+
+        ColasBot1.setEditable(false);
+        ColasBot1.setColumns(20);
+        ColasBot1.setRows(5);
+        ColasBot1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204), 5));
+        ColasBot1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane3.setViewportView(ColasBot1);
+
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 290, 120));
+
+        Admin1.setEditable(false);
+        Admin1.setColumns(20);
+        Admin1.setRows(5);
+        Admin1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204), 5));
+        Admin1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane4.setViewportView(Admin1);
+
+        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 290, 120));
+
+        Admin4.setEditable(false);
+        Admin4.setColumns(20);
+        Admin4.setRows(5);
+        Admin4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204), 5));
+        Admin4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane6.setViewportView(Admin4);
+
+        jPanel2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 280, 120));
+
+        Admin2.setEditable(false);
+        Admin2.setColumns(20);
+        Admin2.setRows(5);
+        Admin2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204), 5));
+        Admin2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane10.setViewportView(Admin2);
+
+        jPanel2.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, 290, 110));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 610));
 
@@ -223,25 +250,16 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
-        if(seleccionar.showDialog(null, "Guardar")==JFileChooser.APPROVE_OPTION){
-            archivo=seleccionar.getSelectedFile();
-            if (archivo.getName().endsWith("txt")){
-                String Documento=ColasBot.getText();
-                String mensaje=GuardarArchivo(archivo, Documento);
-                if(mensaje!=null){
-                    JOptionPane.showMessageDialog(null, mensaje);
-                }else{
-                    JOptionPane.showMessageDialog(null, "Archivo de guardado no compatible");
-                }
-            }else{
-                JOptionPane.showMessageDialog(null, "Guardar Documento de Texto");
-            }
-        }
+        GenerarSimu();
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void Salida1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Salida1ActionPerformed
          System.exit(0);
     }//GEN-LAST:event_Salida1ActionPerformed
+
+    private void jtxtsimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtsimActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtsimActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,11 +297,11 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JTextPane Admin1;
-    public static javax.swing.JTextPane Admin2;
-    public static javax.swing.JTextPane Admin3;
-    public static javax.swing.JTextPane Admin4;
-    private javax.swing.JTextArea ColasBot;
+    private javax.swing.JTextArea Admin1;
+    private javax.swing.JTextArea Admin2;
+    private javax.swing.JTextArea Admin3;
+    private javax.swing.JTextArea Admin4;
+    private javax.swing.JTextArea ColasBot1;
     private javax.swing.JButton Guardar;
     private javax.swing.JButton Salida1;
     private javax.swing.JButton jButton2;
@@ -298,11 +316,12 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTextField jtxtsim;
     private javax.swing.JTextArea priorityUp;
     // End of variables declaration//GEN-END:variables
 }
