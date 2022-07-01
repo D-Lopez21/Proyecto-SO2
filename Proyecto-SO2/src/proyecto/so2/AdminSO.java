@@ -6,6 +6,8 @@
 package proyecto.so2;
 
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -52,12 +54,15 @@ public class AdminSO {
        Nodo nodo;
         if (trophie <= 1999) {
             nodo = new Nodo(Interfaz.telefonos, 1);
+            System.out.println("Soy prioridad 3");
             Interfaz.telefonos++;
         } else if (trophie > 1999 && trophie <= 2999) {
             nodo = new Nodo(Interfaz.telefonos, 2);
+            System.out.println("Soy prioridad 2");
             Interfaz.telefonos++;
         } else {
             nodo = new Nodo(Interfaz.telefonos, 3);
+            System.out.println("Soy un pipi en Clash Royale");
             Interfaz.telefonos++;
         }
         return nodo; 
@@ -160,7 +165,9 @@ public class AdminSO {
         String string;
         String[] strings;
         string = Interfaz.level1.EnqueueQueue(Interfaz.level2.UpdateCounter());
+        System.out.println(string.equals(""));
         if (!string.equals("")) {
+            System.out.println("Entre en el if del 2 al 1");
             strings = string.split(",");
             for (int i = 0; i < strings.length; i++) {
                 Interfaz.priorityUp.setText("Superaste las 1999 copas, subes de Arena de 3 a 2\nTelefono(s): " + strings[i]);
@@ -169,6 +176,7 @@ public class AdminSO {
         }
         string = Interfaz.level2.EnqueueQueue(Interfaz.level3.UpdateCounter());
         if (!string.equals("")) {
+            System.out.println("Entre en el if del 3 al 2");
             strings = string.split(",");
             for (int i = 0; i < strings.length; i++) {
                 Interfaz.priorityUp.setText("Superaste las 2999 copas, Subes de Arena de 2 a 1\nTelefono(s): " + strings[i]);

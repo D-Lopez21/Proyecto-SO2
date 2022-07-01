@@ -1,0 +1,17 @@
+Nombre de la simulacion= pruebaArena
+Analisis de la Inteligencia Artifical= ID Teléfono en revisión: 4
+Ganador del combate
+
+Ascenso de arenas= 
+Arena 1= ID Teléfono: 8 (Contador: 0)
+
+Arena 2= 
+Arena 3= 
+Requieren Esfuerzo= 
+Tiempo de desicion= 300
+Tiempo Simulacion= 300
+Iteraciones= 20
+Arena 1= ID Teléfono: 8 (Contador: 0)
+
+Arena 2= 
+Arena 3= 

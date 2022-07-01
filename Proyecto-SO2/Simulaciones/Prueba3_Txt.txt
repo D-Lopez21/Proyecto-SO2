@@ -1,0 +1,22 @@
+Nombre de la simulacion= Prueba3_Txt
+Analisis de la Inteligencia Artifical= ID Teléfono en revisión: 15
+Necesita un refuerzo
+
+Ascenso de arenas= 
+Arena 1= ID Teléfono: 17 (Contador: 0)
+
+Arena 2= 
+Arena 3= 
+Requieren Esfuerzo= 
+Tiempo de desicion= 300
+Tiempo Simulacion= 300
+Iteraciones= 40
+Arena 1= ID Teléfono: 9 (Contador: 0)
+ID Teléfono: 16 (Contador: 0)
+ID Teléfono: 13 (Contador: 0)
+ID Teléfono: 14 (Contador: 0)
+ID Teléfono: 15 (Contador: 0)
+ID Teléfono: 17 (Contador: 0)
+
+Arena 2= 
+Arena 3= 

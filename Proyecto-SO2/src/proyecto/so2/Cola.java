@@ -100,7 +100,18 @@ private Nodo head;
         for (int i = 0; i < size; i++) {
             Nodo node = this.Dequeue();
             node.setNext(null);
-            string = "ID Teléfono: " + Integer.toString(node.getID()) + " " + "(Contador: " +Integer.toString(node.getCounter()) + ")" + "\n";
+            string += "ID Teléfono: " + Integer.toString(node.getID()) + " " + "(Contador: " +Integer.toString(node.getCounter()) + ")" + "\n";
+            this.EnqueueNode(node);
+        }
+        return string;
+    }
+    
+    public String DataForTxt() {
+        String string = "";
+        for (int i = 0; i < size; i++) {
+            Nodo node = this.Dequeue();
+            node.setNext(null);
+            string += "ID Teléfono: " + Integer.toString(node.getID()) + " " + "(Contador: " +Integer.toString(node.getCounter()) + ")" + "\n";
             this.EnqueueNode(node);
         }
         return string;

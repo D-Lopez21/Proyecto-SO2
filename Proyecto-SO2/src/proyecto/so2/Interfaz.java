@@ -6,11 +6,7 @@
 package proyecto.so2;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import javax.swing.JFileChooser;
+import java.util.Formatter;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,11 +15,9 @@ import javax.swing.JOptionPane;
  */
 public class Interfaz extends javax.swing.JFrame {
     
-    JFileChooser seleccionar = new JFileChooser();
+    String barra = File.separator;
+    String ubicacion = System.getProperty("user.dir")+barra+"Simulaciones"+barra;
     Simulacion simulation = new Simulacion();
-    File archivo;
-    FileInputStream entrada;
-    FileOutputStream salida;
     private boolean start;
     public static volatile int telefonos;
     public static volatile Cola level1;
@@ -46,30 +40,36 @@ public class Interfaz extends javax.swing.JFrame {
         this.start = false;
     }
     
-    public String AbrirArchivo(File archivo) throws FileNotFoundException, IOException{
-        String documento="";
-        try{
-            entrada=new FileInputStream(archivo);
-            int ascci;
-            while((ascci=entrada.read())!=-1){
-                char caracter=(char)ascci;
-                documento+=caracter;
+   
+    private void GenerarSimu(){
+        String archivo = jtxtsim.getText()+".txt";
+        File crea_ubicacion = new File(ubicacion);
+        File crea_archivo = new File(ubicacion+archivo);
+        
+        if(jtxtsim.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "No hay simulaciones guardadas recientemente");
+        }else{
+                try{
+                    if(crea_archivo.exists()){
+                    JOptionPane.showMessageDialog(rootPane, "Ya hay una simulacion bajo este nombre");
+                    }else{
+                        crea_ubicacion.mkdirs();
+                        Formatter crea = new Formatter(ubicacion+archivo);
+                        crea.format("%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n%s","Nombre de la simulacion= "+jtxtsim.getText(),
+                                "Analisis de la Inteligencia Artifical= "+ColasBot.getText(),"Ascenso de arenas= "+priorityUp.getText(),
+                                "Arena 1= "+Admin1.getText(),"Arena 2= "+Admin2.getText(),"Arena 3= "+Admin3.getText(),
+                                "Requieren Esfuerzo= "+AdminFix.getText(), "Tiempo de desicion= "+SimulationTime2.getText(), 
+                                "Tiempo Simulacion= "+SimulationTime.getText(),"Iteraciones= "+SimulationTime3.getText(),
+                                "Arena 1= "+level1.DataForTxt(),"Arena 2= "+level2.DataForTxt(), "Arena 3= "+level3.DataForTxt(),
+                                "Cola de refuerzo= "+fixStation.DataForTxt());
+                        crea.close();
+                        JOptionPane.showMessageDialog(rootPane, "Archivo creado");
+                    }
+                
+            }catch (Exception e){
+                
             }
-        } catch (Exception e){
         }
-        return documento;
-    }
-    
-    public String GuardarArchivo(File archivo, String documento){
-        String mensaje = null;
-        try{
-            salida = new FileOutputStream(archivo);
-            byte [] bytxt = documento.getBytes();
-            salida.write(bytxt);
-            mensaje = "archivo guardado";
-        } catch (Exception e){
-        }
-        return mensaje;
     }
 
     /**
@@ -112,6 +112,7 @@ public class Interfaz extends javax.swing.JFrame {
         AdminFix = new javax.swing.JTextPane();
         startBtn = new javax.swing.JButton();
         AdjustRunTime = new javax.swing.JButton();
+        jtxtsim = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -224,12 +225,15 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel2.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 530, 290, 40));
 
         SimulationTime3.setText("2");
+        SimulationTime3.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 204, 204)));
         jPanel2.add(SimulationTime3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 480, 150, 40));
 
         SimulationTime2.setText("13000");
+        SimulationTime2.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 204, 204)));
         jPanel2.add(SimulationTime2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 200, 40));
 
         SimulationTime.setText("1000");
+        SimulationTime.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 204, 204)));
         jPanel2.add(SimulationTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 220, 40));
 
         Admin1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
@@ -274,6 +278,15 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jPanel2.add(AdjustRunTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, 220, 40));
 
+        jtxtsim.setText("Inserte el nombre con que desea guardar la simulacion");
+        jtxtsim.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 204, 204)));
+        jtxtsim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtsimActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jtxtsim, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 440, 290, 30));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 610));
 
         pack();
@@ -290,21 +303,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_startBtnActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
-        this.start = false;
-        if(seleccionar.showDialog(null, "Guardar")==JFileChooser.APPROVE_OPTION){
-            archivo=seleccionar.getSelectedFile();
-            if (archivo.getName().endsWith("txt")){
-                String Documento=ColasBot.getText();
-                String mensaje=GuardarArchivo(archivo, Documento);
-                if(mensaje!=null){
-                    JOptionPane.showMessageDialog(null, mensaje);
-                }else{
-                    JOptionPane.showMessageDialog(null, "Archivo de guardado no compatible");
-                }
-            }else{
-                JOptionPane.showMessageDialog(null, "Guardar Documento de Texto");
-            }
-        }
+        GenerarSimu();
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void Salida1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Salida1ActionPerformed
@@ -342,6 +341,10 @@ public class Interfaz extends javax.swing.JFrame {
             System.out.println("No fue ajustado el tiempo debido a error en la introducción de datos");
         }
     }//GEN-LAST:event_AdjustRunTimeActionPerformed
+
+    private void jtxtsimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtsimActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtsimActionPerformed
 
     /**
      * @param args the command line arguments
@@ -408,6 +411,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTextField jtxtsim;
     public static javax.swing.JTextArea priorityUp;
     private javax.swing.JButton startBtn;
     // End of variables declaration//GEN-END:variables

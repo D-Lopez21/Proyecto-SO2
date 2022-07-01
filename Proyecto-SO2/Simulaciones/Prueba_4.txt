@@ -1,0 +1,19 @@
+Nombre de la simulacion= Prueba_4
+Analisis de la Inteligencia Artifical= ID Teléfono en revisión: 14
+Necesita un refuerzo
+
+Ascenso de arenas= 
+Arena 1= ID Teléfono: 17 (Contador: 0)
+
+Arena 2= 
+Arena 3= 
+Requieren Esfuerzo= ID Teléfono: 14 (Contador: 0)
+
+Tiempo de desicion= 1000
+Tiempo Simulacion= 1000
+Iteraciones= 50
+Arena 1= ID Teléfono: 16 (Contador: 0)
+ID Teléfono: 17 (Contador: 0)
+
+Arena 2= 
+Arena 3= 
