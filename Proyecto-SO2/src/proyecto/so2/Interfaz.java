@@ -5,17 +5,58 @@
  */
 package proyecto.so2;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DIEGO_LOPEZ
  */
 public class Interfaz extends javax.swing.JFrame {
+    JFileChooser seleccionar = new JFileChooser();
+    File archivo;
+    FileInputStream entrada;
+    FileOutputStream salida;
+    
+           
 
     /**
      * Creates new form Interfaz
      */
     public Interfaz() {
         initComponents();
+        this.setLocationRelativeTo(null);
+    }
+    
+    public String AbrirArchivo(File archivo) throws FileNotFoundException, IOException{
+        String documento="";
+        try{
+            entrada=new FileInputStream(archivo);
+            int ascci;
+            while((ascci=entrada.read())!=-1){
+                char caracter=(char)ascci;
+                documento+=caracter;
+            }
+        } catch (Exception e){
+        }
+        return documento;
+    }
+    
+    public String GuardarArchivo(File archivo, String documento){
+        String mensaje = null;
+        try{
+            salida = new FileOutputStream(archivo);
+            byte [] bytxt = documento.getBytes();
+            salida.write(bytxt);
+            mensaje = "archivo guardado";
+        } catch (Exception e){
+        }
+        return mensaje;
     }
 
     /**
@@ -29,17 +70,9 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        ColasBot = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea5 = new javax.swing.JTextArea();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTextArea6 = new javax.swing.JTextArea();
+        priorityUp = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -49,67 +82,46 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        Admin1 = new javax.swing.JTextPane();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        Admin2 = new javax.swing.JTextPane();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        Admin3 = new javax.swing.JTextPane();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        Admin4 = new javax.swing.JTextPane();
+        Guardar = new javax.swing.JButton();
+        Salida1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
-        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane1.setViewportView(jTextArea1);
+        ColasBot.setColumns(20);
+        ColasBot.setRows(5);
+        ColasBot.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
+        ColasBot.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane1.setViewportView(ColasBot);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 290, 120));
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jTextArea2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
-        jTextArea2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane2.setViewportView(jTextArea2);
+        priorityUp.setColumns(20);
+        priorityUp.setRows(5);
+        priorityUp.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
+        priorityUp.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane2.setViewportView(priorityUp);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, 300, 120));
-
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jTextArea3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
-        jTextArea3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane3.setViewportView(jTextArea3);
-
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 260, 120));
-
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jTextArea4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
-        jTextArea4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane4.setViewportView(jTextArea4);
-
-        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 290, 120));
-
-        jTextArea5.setColumns(20);
-        jTextArea5.setRows(5);
-        jTextArea5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
-        jTextArea5.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane5.setViewportView(jTextArea5);
-
-        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 270, 260, 120));
-
-        jTextArea6.setColumns(20);
-        jTextArea6.setRows(5);
-        jTextArea6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
-        jTextArea6.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane6.setViewportView(jTextArea6);
-
-        jPanel2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 260, 120));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, 300, 120));
 
         jLabel1.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel1.setText("Actualizacion del sistema");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, -1, 35));
+        jLabel1.setText("Actualizacion de prioridades");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, -1, 35));
 
         jLabel3.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 204, 204));
@@ -123,7 +135,7 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 204, 204));
         jLabel4.setText("Inteligencia Artificial");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, 35));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, 35));
 
         jLabel5.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 204, 204));
@@ -132,13 +144,13 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel6.setText("Requerir esfuerzo");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, 35));
+        jLabel6.setText("Requieren refuerzo");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, 35));
 
         jLabel7.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 204, 204));
         jLabel7.setText("Prioridad 2");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, -1, 35));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, 35));
 
         jLabel8.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 204, 204));
@@ -148,26 +160,88 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(0, 204, 204));
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 204));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 204, 204));
-        jButton1.setText("Empezar Simulacion");
-        jButton1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 204, 204)));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 204, 204));
+        jButton2.setText("Empezar simulacion");
+        jButton2.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 204, 204)));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, 260, 39));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 490, 240, 40));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 570));
+        Admin1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
+        jScrollPane5.setViewportView(Admin1);
+
+        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 250, 110));
+
+        Admin2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
+        jScrollPane7.setViewportView(Admin2);
+
+        jPanel2.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 240, 110));
+
+        Admin3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
+        jScrollPane8.setViewportView(Admin3);
+
+        jPanel2.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 270, 250, 110));
+
+        Admin4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 5, true));
+        jScrollPane9.setViewportView(Admin4);
+
+        jPanel2.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 250, 110));
+
+        Guardar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Guardar.setForeground(new java.awt.Color(0, 204, 204));
+        Guardar.setText("Guardar simulacion");
+        Guardar.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 204, 204)));
+        Guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 530, 230, 40));
+
+        Salida1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Salida1.setForeground(new java.awt.Color(0, 204, 204));
+        Salida1.setText("Salir");
+        Salida1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 204, 204)));
+        Salida1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Salida1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Salida1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 480, 110, 40));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
+        if(seleccionar.showDialog(null, "Guardar")==JFileChooser.APPROVE_OPTION){
+            archivo=seleccionar.getSelectedFile();
+            if (archivo.getName().endsWith("txt")){
+                String Documento=ColasBot.getText();
+                String mensaje=GuardarArchivo(archivo, Documento);
+                if(mensaje!=null){
+                    JOptionPane.showMessageDialog(null, mensaje);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Archivo de guardado no compatible");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Guardar Documento de Texto");
+            }
+        }
+    }//GEN-LAST:event_GuardarActionPerformed
+
+    private void Salida1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Salida1ActionPerformed
+         System.exit(0);
+    }//GEN-LAST:event_Salida1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,7 +279,14 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public static javax.swing.JTextPane Admin1;
+    public static javax.swing.JTextPane Admin2;
+    public static javax.swing.JTextPane Admin3;
+    public static javax.swing.JTextPane Admin4;
+    private javax.swing.JTextArea ColasBot;
+    private javax.swing.JButton Guardar;
+    private javax.swing.JButton Salida1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -218,15 +299,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextArea jTextArea6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTextArea priorityUp;
     // End of variables declaration//GEN-END:variables
 }
