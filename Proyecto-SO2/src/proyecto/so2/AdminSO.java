@@ -5,6 +5,8 @@
  */
 package proyecto.so2;
 
+import java.util.Random;
+
 /**
  *
  * @author Nicolás y Andres
@@ -24,24 +26,41 @@ public class AdminSO {
     
     public Nodo Phone() { 
         //Aquí se crean por prioridad y se avisa a interfaz de su creación
-        double rand = Math.random() * 3;
-        double pantalla = Math.random() *75;
+        int min = 0;
+        int max = 2;
+        Random random = new Random();
+        int rand = random.nextInt(max+min)+min;
+        double pantalla = Math.random() * 75;
         double pin = Math.random()  * 84;
         double camara = Math.random() * 80;
         double botones = Math.random() * 85;
-        double trophies = rand + pantalla + pin + camara + botones;
-        Nodo nodo;
-        if (trophies <= 1999) {
+        Nodo phone;
+        if (rand == 1){
+            double trophies = pantalla + pin + 3*camara + 4*botones;
+            phone = this.CreateThophie(trophies);
+        }else if (rand == 2){        
+            double trophies = 2*pantalla + pin + 4*camara + 3*botones;
+            phone = this.CreateThophie(trophies);
+        }else{
+            double trophies = pantalla + pin + 4*camara + 3*botones;
+            phone = this.CreateThophie(trophies);
+        }
+        return phone;
+    }
+    
+    public Nodo CreateThophie(double trophie){
+       Nodo nodo;
+        if (trophie <= 1999) {
             nodo = new Nodo(Interfaz.telefonos, 1);
             Interfaz.telefonos++;
-        } else if (trophies > 1999 && trophies <= 2999) {
+        } else if (trophie > 1999 && trophie <= 2999) {
             nodo = new Nodo(Interfaz.telefonos, 2);
             Interfaz.telefonos++;
         } else {
             nodo = new Nodo(Interfaz.telefonos, 3);
             Interfaz.telefonos++;
         }
-        return nodo;
+        return nodo; 
     }
     
     public Nodo CreatePhone() {
@@ -144,7 +163,7 @@ public class AdminSO {
         if (!string.equals("")) {
             strings = string.split(",");
             for (int i = 0; i < strings.length; i++) {
-                Interfaz.priorityUp.setText("Subida de Arena de 1 a 2\nTelefono(s): " + strings[i]);
+                Interfaz.priorityUp.setText("Superaste las 1999 copas, subes de Arena de 3 a 2\nTelefono(s): " + strings[i]);
                 Interfaz.priorityUp.update(Interfaz.priorityUp.getGraphics());
             }
         }
@@ -152,7 +171,7 @@ public class AdminSO {
         if (!string.equals("")) {
             strings = string.split(",");
             for (int i = 0; i < strings.length; i++) {
-                Interfaz.priorityUp.setText("Subida de Arena de 2 a 3\nTelefono(s): " + strings[i]);
+                Interfaz.priorityUp.setText("Superaste las 2999 copas, Subes de Arena de 2 a 1\nTelefono(s): " + strings[i]);
                 Interfaz.priorityUp.update(Interfaz.priorityUp.getGraphics());
             }
         }

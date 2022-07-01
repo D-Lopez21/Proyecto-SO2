@@ -7,7 +7,7 @@ package proyecto.so2;
 
 /**
  *
- * @author Nicolás Briceño
+ * @author Nicolás Briceño y Andres
  */
 public class Nodo {
     
@@ -15,11 +15,21 @@ public class Nodo {
     private int ID;
     private int counter;
     private int priority;
+    private double strike;
+    private double critico; 
+    private double evasion;
+    private double velocidad;
+    private double rango;
 
     public Nodo(int ID, int priority) {
         this.ID = ID;
         this.counter = 0;
         this.priority = priority;
+        this.strike = Math.random();
+        this.critico = Math.random();
+        this.evasion = Math.random();
+        this.velocidad = Math.random();
+        this.rango = Math.random();
     }
 
     public void updatePriority() {
