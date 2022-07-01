@@ -7,7 +7,7 @@ package proyecto.so2;
 
 /**
  *
- * @author Nicolás
+ * @author Nicolás y Andres
  */
 public class AdminSO {
     
@@ -25,11 +25,16 @@ public class AdminSO {
     public Nodo Phone() { 
         //Aquí se crean por prioridad y se avisa a interfaz de su creación
         double rand = Math.random() * 3;
+        double pantalla = Math.random() *75;
+        double pin = Math.random()  * 84;
+        double camara = Math.random() * 80;
+        double botones = Math.random() * 85;
+        double trophies = rand + pantalla + pin + camara + botones;
         Nodo nodo;
-        if (rand <= 1) {
+        if (trophies <= 1999) {
             nodo = new Nodo(Interfaz.telefonos, 1);
             Interfaz.telefonos++;
-        } else if (rand <= 2) {
+        } else if (trophies > 1999 && trophies <= 2999) {
             nodo = new Nodo(Interfaz.telefonos, 2);
             Interfaz.telefonos++;
         } else {
@@ -139,7 +144,7 @@ public class AdminSO {
         if (!string.equals("")) {
             strings = string.split(",");
             for (int i = 0; i < strings.length; i++) {
-                Interfaz.priorityUp.setText("Prioridad aumentada de 3 a 2\nTelefono(s): " + strings[i]);
+                Interfaz.priorityUp.setText("Subida de Arena de 1 a 2\nTelefono(s): " + strings[i]);
                 Interfaz.priorityUp.update(Interfaz.priorityUp.getGraphics());
             }
         }
@@ -147,7 +152,7 @@ public class AdminSO {
         if (!string.equals("")) {
             strings = string.split(",");
             for (int i = 0; i < strings.length; i++) {
-                Interfaz.priorityUp.setText("Prioridad aumentada de 3 a 2\nTelefono(s): " + strings[i]);
+                Interfaz.priorityUp.setText("Subida de Arena de 2 a 3\nTelefono(s): " + strings[i]);
                 Interfaz.priorityUp.update(Interfaz.priorityUp.getGraphics());
             }
         }
